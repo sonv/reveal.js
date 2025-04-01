@@ -23,8 +23,20 @@ Vietnam National University HCMC (Fall)
 </section>
 <section data-auto-animate>
   <h2>Fast-slow system</h2>
-  $$ \begin{cases} \dot X_t = f(X_t, Y_t)  \\  
-    \epsilon \dot Y_t = g(X_t, Y_t)\end{cases} $$
+  <div>
+  $$ 
+  \begin{cases} \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
+    \epsilon \dot Y_t = g(X^\epsilon_t, Y^\epsilon_t)\end{cases} 
+  $$
+  </div>
+
+  <div class="fragment">
+  Under suitable conditions, $X^\epsilon_t$ is approximated by solution of
+  $$
+  \dot  X_t = F(  X_t )
+  $$
+  for an appropriate $F$.
+  </div>
 </section>
 
 
