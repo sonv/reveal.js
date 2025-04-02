@@ -35,9 +35,10 @@ Vietnam National University HCMC (Fall)
   $$
   \dot  X_t = F(  X_t )
   $$
-  for an appropriate $F$.
+  for an appropriate $F$ (some sort of averaging over $y$).
   </div>
 </section>
 
 
 
+##
