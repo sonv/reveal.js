@@ -11,22 +11,25 @@ Vietnam National University HCMC (Fall)
 
 
 <section data-auto-animate>
-  <h2>Fast-slow system</h2>
-</section>
-<section data-auto-animate>
-  <h2>Fast-slow system</h2>
   <img data-src="Weather_versus_climate_at_a_glance_pillars.jpg"></img>
 </section>
 <section data-auto-animate>
-  <h2>Fast-slow system</h2>
   (Picture of temperature data)
+</section>
+
+
+
+<section data-auto-animate>
+  <h2>Fast-slow system</h2>
 </section>
 <section data-auto-animate>
   <h2>Fast-slow system</h2>
   <div>
   $$ 
-  \begin{cases} \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
-    \epsilon \dot Y_t = g(X^\epsilon_t, Y^\epsilon_t)\end{cases} 
+  \begin{cases} 
+    \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
+    \epsilon \dot Y_t = g(X^\epsilon_t, Y^\epsilon_t) + \sqrt{\epsilon} \sigma(X^\epsilon_t, Y^\epsilon_t) \, dW_t 
+  \end{cases}
   $$
   </div>
 
@@ -41,4 +44,28 @@ Vietnam National University HCMC (Fall)
 
 
 
-##
+### Averaging Principle
+
+
+
+### Can we do better?
+
+
+
+### Kinetic Langevin
+
+
+
+### Simplest case $b= 0$
+
+
+
+### Large time
+
+
+
+### Future
+
+
+
+### Thank you!
