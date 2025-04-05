@@ -6,8 +6,8 @@
 <script src="NTU-Spring-2025_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="NTU-Spring-2025_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="NTU-Spring-2025_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="NTU-Spring-2025_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.42">
+<link href="NTU-Spring-2025_files/libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.43">
 
   <meta name="author" content="Truong-Son Van">
   <meta name="dcterms.date" content="2025-04-05">
@@ -29,7 +29,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="NTU-Spring-2025_files/libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
   <link href="NTU-Spring-2025_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="NTU-Spring-2025_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -148,36 +168,28 @@ Truong-Son Van
 
   <p class="date">2025-04-05</p>
 </section>
-<section class="slide level2">
+<section id="section" class="slide level2 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
 
-<section data-auto-animate="">
-<img data-src="images/NTU-Spring-2025/Weather_versus_climate_at_a_glance_pillars.jpg">
+<img data-src="images/NTU-Spring-2025/Weather_versus_climate_at_a_glance_pillars.jpg" class="r-stretch"></section>
+<section id="section-1" class="slide level2 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<h2 data-id="quarto-animate-title"></h2>
+<p>(Picture of temperature data)</p>
 </section>
-<section data-auto-animate="">
-(Picture of temperature data)
-</section>
-</section>
-<section id="fast-slow-system" class="slide level2 center r-stack">
-<h2>Fast-slow system</h2>
-<p><span class="math display">\[
-  \begin{cases}
+<section>
+<section id="fast-slow-system" class="title-slide slide level1 center" data-auto-animate="true">
+<h1 data-id="quarto-animate-title">Fast-slow system</h1>
+<span class="math display">\[\begin{cases}
     \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
     \epsilon \dot Y_t = g(X^\epsilon_t, Y^\epsilon_t) + \sqrt{\epsilon} \sigma(X^\epsilon_t, Y^\epsilon_t) \, dW_t
-  \end{cases}
-  \]</span></p>
+  \end{cases}\]</span>
+<p><span class="citation" data-cites="HasselmannStochasticClimate1976">Hasselmann (<a href="#/thank-you" role="doc-biblioref" onclick="">1976</a>)</span></p>
 </section>
 <section id="can-we-approximate-the-system-efficiently" class="slide level2 center">
 <h2>Can we approximate the system efficiently?</h2>
 </section>
 <section id="averaging-principle" class="slide level2">
 <h2>Averaging Principle</h2>
-<section>
-<div class="fragment">
-Under suitable conditions, <span class="math inline">\(X^\epsilon_t\)</span> is approximated by solution of <span class="math display">\[
-  \dot  X_t = F(  X_t )
-  \]</span> for an appropriate <span class="math inline">\(F\)</span> (some sort of averaging over <span class="math inline">\(y\)</span>).
-</div>
-</section>
 </section>
 <section id="can-we-do-better" class="slide level2">
 <h2>Can we do better?</h2>
@@ -194,10 +206,15 @@ Under suitable conditions, <span class="math inline">\(X^\epsilon_t\)</span> is 
 <section id="future" class="slide level2">
 <h2>Future</h2>
 </section>
-<section id="thank-you" class="slide level2">
+<section id="thank-you" class="slide level2 smaller scrollable">
 <h2>Thank you!</h2>
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-HasselmannStochasticClimate1976" class="csl-entry" role="listitem">
+Hasselmann, K. 1976. <span>“Stochastic Climate Models <span>Part I</span>. <span>Theory</span>.”</span> <em>Tellus</em> 28 (6): 473–85. <a href="https://doi.org/10.1111/j.2153-3490.1976.tb00696.x">https://doi.org/10.1111/j.2153-3490.1976.tb00696.x</a>.
+</div>
+</div>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -233,10 +250,6 @@ Under suitable conditions, <span class="math inline">\(X^\epsilon_t\)</span> is 
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'scrollProgress': true,
-'scrollSnap': "proximity",
-'scrollLayout': "compact",
-'scrollActivationWidth': 0,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
