@@ -1,0 +1,85 @@
+---
+title: On Diffusion approximations of the Kinetic Langevin Equation
+format:
+  revealjs:
+    scroll-view:
+      layout: compact
+      snap: proximity
+      progress: true
+      activation-width: 0
+    include-in-header:
+    - text: |
+        <style>
+        #title-slide .title {
+          font-size: 2em;
+        }
+        </style>
+  clean-revealjs:
+    self-contained: true
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+author:
+  - name: Truong-Son Van 
+    email: 
+    affiliations: Fulbright University Vietnam <br> Vietnam National University Ho Chi Minh City (Fall 2025) 
+date: last-modified
+bibliography: refs.bib
+---
+<section data-auto-animate>
+  <img data-src="images/NTU-Spring-2025/Weather_versus_climate_at_a_glance_pillars.jpg"></img>
+</section>
+<section data-auto-animate>
+  (Picture of temperature data)
+</section>
+
+
+
+## Fast-slow system {.center .r-stack}
+  $$ 
+  \begin{cases} 
+    \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
+    \epsilon \dot Y_t = g(X^\epsilon_t, Y^\epsilon_t) + \sqrt{\epsilon} \sigma(X^\epsilon_t, Y^\epsilon_t) \, dW_t 
+  \end{cases}
+  $$
+
+
+
+## Can we approximate the system efficiently? {.center}
+
+
+## Averaging Principle
+<section>
+  <div class="fragment">
+  Under suitable conditions, $X^\epsilon_t$ is approximated by solution of
+  $$
+  \dot  X_t = F(  X_t )
+  $$
+  for an appropriate $F$ (some sort of averaging over $y$).
+  </div>
+</section>
+
+
+
+
+## Can we do better?
+
+
+
+## Kinetic Langevin
+
+
+
+## Simplest case $b= 0$
+
+
+
+## Large time
+
+
+
+## Future
+
+
+## Thank you!
+
