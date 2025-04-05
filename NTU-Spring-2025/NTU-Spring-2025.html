@@ -176,20 +176,36 @@ Truong-Son Van
 <h2 data-id="quarto-animate-title"></h2>
 <p>(Picture of temperature data)</p>
 </section>
-<section>
-<section id="fast-slow-system" class="title-slide slide level1 center" data-auto-animate="true">
-<h1 data-id="quarto-animate-title">Fast-slow system</h1>
+<section id="fast-slow-system" class="slide level2 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Fast-slow system</h2>
 <span class="math display">\[\begin{cases}
     \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
-    \epsilon \dot Y_t = g(X^\epsilon_t, Y^\epsilon_t) + \sqrt{\epsilon} \sigma(X^\epsilon_t, Y^\epsilon_t) \, dW_t
+    Y^\epsilon_t \text{ oscillates fast }
   \end{cases}\]</span>
-<p><span class="citation" data-cites="HasselmannStochasticClimate1976">Hasselmann (<a href="#/thank-you" role="doc-biblioref" onclick="">1976</a>)</span></p>
+</section>
+<section id="averaging-principle" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Averaging Principle</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Under appropriate regularity conditions</strong></p>
+</div>
+<div class="callout-content">
+<p>Suppose <span class="math display">\[
+\lim_{T \to \infty} \frac{1}{T} \int_0^T b(x, Y^\epsilon_s) \, ds = \bar b(x) \,.
+\]</span> Then <span class="math inline">\(X^\epsilon \to  X\)</span>, where <span class="math display">\[
+\dot X_t = \bar b(X_t) \,.
+\]</span></p>
+</div>
+</div>
+</div>
+<p><em>Random Perturbations of Dynamical Systems</em>, <span class="citation" data-cites="FreidlinWentzellRandomPerturbations2012">Freidlin and Wentzell (<a href="#/thank-you" role="doc-biblioref" onclick="">2012</a>)</span></p>
 </section>
 <section id="can-we-approximate-the-system-efficiently" class="slide level2 center">
 <h2>Can we approximate the system efficiently?</h2>
-</section>
-<section id="averaging-principle" class="slide level2">
-<h2>Averaging Principle</h2>
 </section>
 <section id="can-we-do-better" class="slide level2">
 <h2>Can we do better?</h2>
@@ -210,11 +226,11 @@ Truong-Son Van
 <h2>Thank you!</h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-HasselmannStochasticClimate1976" class="csl-entry" role="listitem">
-Hasselmann, K. 1976. <span>“Stochastic Climate Models <span>Part I</span>. <span>Theory</span>.”</span> <em>Tellus</em> 28 (6): 473–85. <a href="https://doi.org/10.1111/j.2153-3490.1976.tb00696.x">https://doi.org/10.1111/j.2153-3490.1976.tb00696.x</a>.
+<div id="ref-FreidlinWentzellRandomPerturbations2012" class="csl-entry" role="listitem">
+Freidlin, Mark I., and Alexander D. Wentzell. 2012. <em>Random <span>Perturbations</span> of <span>Dynamical Systems</span></em>. Third. Vol. 260. Grundlehren <span>Der Mathematischen Wissenschaften</span> [<span>Fundamental Principles</span> of <span>Mathematical Sciences</span>]. Springer, Heidelberg. <a href="https://doi.org/10.1007/978-3-642-25847-3">https://doi.org/10.1007/978-3-642-25847-3</a>.
 </div>
 </div>
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

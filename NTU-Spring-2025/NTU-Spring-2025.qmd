@@ -31,18 +31,31 @@ bibliography: refs.bib
 
 
 
-# Fast-slow system {auto-animate=true .center}
+## Fast-slow system {auto-animate=true .center}
   \begin{cases} 
     \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
-    \epsilon \dot Y_t = g(X^\epsilon_t, Y^\epsilon_t) + \sqrt{\epsilon} \sigma(X^\epsilon_t, Y^\epsilon_t) \, dW_t 
+    Y^\epsilon_t \text{ oscillates fast }
   \end{cases}
-@HasselmannStochasticClimate1976  
 
+
+## Averaging Principle {auto-animate=true}
+::: {.callout-note}
+## Under appropriate regularity conditions 
+Suppose 
+$$
+\lim_{T \to \infty} \frac{1}{T} \int_0^T b(x, Y^\epsilon_s) \, ds = \bar b(x) \,.
+$$
+Then $X^\epsilon \to  X$, where
+$$
+\dot X_t = \bar b(X_t) \,.
+$$
+:::
+
+_Random Perturbations of Dynamical Systems_, @FreidlinWentzellRandomPerturbations2012
 
 ## Can we approximate the system efficiently? {.center}
 
 
-## Averaging Principle
 
 
 
