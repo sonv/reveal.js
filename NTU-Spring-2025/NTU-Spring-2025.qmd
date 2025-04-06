@@ -38,7 +38,7 @@ bibliography: refs.bib
   \end{cases}
 
 
-## Averaging Principle {auto-animate=true}
+## Averaging Principle {auto-animate=true .center}
 ::: {.callout-note}
 ## Under appropriate regularity conditions 
 Suppose 
@@ -54,21 +54,38 @@ $$
 _Random Perturbations of Dynamical Systems_, @FreidlinWentzellRandomPerturbations2012
 
 
-## Rate of convergence
+## Random fast system {.center}
 
-## Can we approximate the system efficiently? {.center}
-
-
-
-
-
-
-
-## Can we do better?
+\begin{cases} 
+  d X^\epsilon_t &= f(X^\epsilon, Y^\epsilon_t, t) dt + G(X^\epsilon, Y^\epsilon_t, t) dW^1_t \\  
+  \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t)dt + \sqrt{\epsilon} \sigma(X^\epsilon_t, Y^\epsilon_t) dW^2_t
+\end{cases}
 
 
 
-## Kinetic Langevin
+
+## Rate of convergence {.center}
+::: {.callout-note}
+## Under appropriate regularity conditions
+
+Given $T>0$ and $\varphi \in C^\infty(\mathbb{T}^n)$. There exists a constant $C$ such that
+\begin{equation}
+        \sup_{t \in [0, T]} \mathbb E \left| X^\epsilon_t - Z^\epsilon_t  \right| \leq C\epsilon^{1/2}
+\end{equation}
+and
+\begin{equation}
+        \sup_{t\in [0, T]} \left| \mathbb E \varphi(X^\epsilon_t) - \mathbb E \varphi(Z^\epsilon_t)  \right|
+        \leq C \epsilon \,.
+\end{equation}
+:::
+@RocknerSunXieStrongWeak2019
+
+# Can we approximate the system more efficiently? {.center}
+
+
+
+
+
 
 
 

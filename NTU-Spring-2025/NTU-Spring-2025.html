@@ -183,7 +183,7 @@ Truong-Son Van
     Y^\epsilon_t \text{ oscillates fast }
   \end{cases}\]</span>
 </section>
-<section id="averaging-principle" class="slide level2" data-auto-animate="true">
+<section id="averaging-principle" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Averaging Principle</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -204,17 +204,39 @@ Truong-Son Van
 </div>
 <p><em>Random Perturbations of Dynamical Systems</em>, <span class="citation" data-cites="FreidlinWentzellRandomPerturbations2012">Freidlin and Wentzell (<a href="#/thank-you" role="doc-biblioref" onclick="">2012</a>)</span></p>
 </section>
-<section id="rate-of-convergence" class="slide level2">
+<section id="random-fast-system" class="slide level2 center">
+<h2>Random fast system</h2>
+<span class="math display">\[\begin{cases}
+  d X^\epsilon_t &amp;= f(X^\epsilon, Y^\epsilon_t, t) dt + G(X^\epsilon, Y^\epsilon_t, t) dW^1_t \\  
+  \epsilon d Y^\epsilon_t  &amp;=  g(X^\epsilon_t,  Y^\epsilon_t)dt + \sqrt{\epsilon} \sigma(X^\epsilon_t, Y^\epsilon_t) dW^2_t
+\end{cases}\]</span>
+</section>
+<section id="rate-of-convergence" class="slide level2 center">
 <h2>Rate of convergence</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Under appropriate regularity conditions</strong></p>
+</div>
+<div class="callout-content">
+<p>Given <span class="math inline">\(T&gt;0\)</span> and <span class="math inline">\(\varphi \in C^\infty(\mathbb{T}^n)\)</span>. There exists a constant <span class="math inline">\(C\)</span> such that <span class="math display">\[\begin{equation}
+        \sup_{t \in [0, T]} \mathbb E \left| X^\epsilon_t - Z^\epsilon_t  \right| \leq C\epsilon^{1/2}
+\end{equation}\]</span> and <span class="math display">\[\begin{equation}
+        \sup_{t\in [0, T]} \left| \mathbb E \varphi(X^\epsilon_t) - \mathbb E \varphi(Z^\epsilon_t)  \right|
+        \leq C \epsilon \,.
+\end{equation}\]</span></p>
+</div>
+</div>
+</div>
+<p><span class="citation" data-cites="RocknerSunXieStrongWeak2019">Röckner, Sun, and Xie (<a href="#/thank-you" role="doc-biblioref" onclick="">2019</a>)</span></p>
 </section>
-<section id="can-we-approximate-the-system-efficiently" class="slide level2 center">
-<h2>Can we approximate the system efficiently?</h2>
-</section>
-<section id="can-we-do-better" class="slide level2">
-<h2>Can we do better?</h2>
-</section>
-<section id="kinetic-langevin" class="slide level2">
-<h2>Kinetic Langevin</h2>
+<section>
+<section id="can-we-approximate-the-system-more-efficiently" class="title-slide slide level1 center">
+<h1>Can we approximate the system more efficiently?</h1>
+
 </section>
 <section id="simplest-case-b-0" class="slide level2">
 <h2>Simplest case <span class="math inline">\(b= 0\)</span></h2>
@@ -232,8 +254,11 @@ Truong-Son Van
 <div id="ref-FreidlinWentzellRandomPerturbations2012" class="csl-entry" role="listitem">
 Freidlin, Mark I., and Alexander D. Wentzell. 2012. <em>Random <span>Perturbations</span> of <span>Dynamical Systems</span></em>. Third. Vol. 260. Grundlehren <span>Der Mathematischen Wissenschaften</span> [<span>Fundamental Principles</span> of <span>Mathematical Sciences</span>]. Springer, Heidelberg. <a href="https://doi.org/10.1007/978-3-642-25847-3">https://doi.org/10.1007/978-3-642-25847-3</a>.
 </div>
+<div id="ref-RocknerSunXieStrongWeak2019" class="csl-entry" role="listitem">
+Röckner, Michael, Xiaobin Sun, and Longjie Xie. 2019. <span>“Strong and Weak Convergence in the Averaging Principle for <span>SDEs</span> with <span>H</span><span>\</span>"older Coefficients,”</span> no. arXiv:1907.09256 (July). <a href="http://arxiv.org/abs/1907.09256">http://arxiv.org/abs/1907.09256</a>.
 </div>
-</section>
+</div>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
