@@ -53,6 +53,9 @@ $$
 
 _Random Perturbations of Dynamical Systems_, @FreidlinWentzellRandomPerturbations2012
 
+
+## Rate of convergence
+
 ## Can we approximate the system efficiently? {.center}
 
 
