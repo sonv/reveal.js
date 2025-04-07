@@ -1,5 +1,6 @@
 ---
 title: On Diffusion approximations of the Kinetic Langevin Equation
+subtitle: joint work with Yoichiro Mori and Chanoknun Sintavanuruk
 format:
   clean-revealjs:
     self-contained: true
