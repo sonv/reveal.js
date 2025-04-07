@@ -1,14 +1,6 @@
 ---
 title: On Diffusion approximations of the Kinetic Langevin Equation
 format:
-  revealjs:
-    include-in-header:
-    - text: |
-        <style>
-        #title-slide .title {
-          font-size: 2em;
-        }
-        </style>
   clean-revealjs:
     self-contained: true
 html-math-method:
@@ -22,67 +14,282 @@ date: last-modified
 bibliography: refs.bib
 ---
 
-## {auto-animate=true .center}
+## {.center}
 <img data-src="images/NTU-Spring-2025/Weather_versus_climate_at_a_glance_pillars.jpg"></img>
 
 
 ## {auto-animate=true auto-animate-easing="ease-in-out" .center}
-  (Picture of temperature data)
+<img data-src="images/NTU-Spring-2025/climate.png"></img>
+
+Source: [https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics](https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics)
 
 
 
-## Fast-slow system {auto-animate=true .center}
+# Fast-slow system 
+
+## {auto-animate=true .center}
+### General
   \begin{cases} 
-    \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t)  \\  
-    Y^\epsilon_t \text{ oscillates fast }
+    \dot X^\epsilon_t = f(X^\epsilon_t, \xi^\epsilon_t, t)  \\  
+    \xi^\epsilon_t \sim Y^\epsilon_{t/\epsilon}
   \end{cases}
 
+### Random fast system
 
-## Averaging Principle {auto-animate=true}
+\begin{cases} 
+  d X^\epsilon_t &= f(X^\epsilon, Y^\epsilon_t, t) dt  \\  
+  \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t)dt + \sqrt{\epsilon} h(X^\epsilon_t, Y^\epsilon_t) dW_t
+\end{cases}
+
+### Kinetic Langevin 
+
+\begin{cases} 
+  d X^\epsilon_t &= Y^\epsilon_t dt  \\  
+  \epsilon d Y^\epsilon_t  &=  (- Y^\epsilon_t + b(X^\epsilon_t, t)   )dt + \sqrt{2 \epsilon}  dW_t
+\end{cases}
+
+
+## Averaging Principle {auto-animate=true .center}
 ::: {.callout-note}
 ## Under appropriate regularity conditions 
 Suppose 
 $$
-\lim_{T \to \infty} \frac{1}{T} \int_0^T b(x, Y^\epsilon_s) \, ds = \bar b(x) \,.
+\lim_{\epsilon \to 0} \lim_{T \to \infty} \frac{1}{T} \int_0^T g(x, Y^\epsilon_s,t) \, ds = \bar g(x, t) \,.
 $$
 Then $X^\epsilon \to  X$, where
 $$
-\dot X_t = \bar b(X_t) \,.
+\dot X_t = \bar g(X_t, t) \,.
 $$
 :::
 
 _Random Perturbations of Dynamical Systems_, @FreidlinWentzellRandomPerturbations2012
 
 
-## Rate of convergence
 
 
+## Rate of convergence {.center}
+::: {.callout-note}
+## Under appropriate regularity conditions
 
-## Can we approximate the system efficiently? {.center}
+Given $T>0$ and $\varphi \in C^\infty(\mathbb{T}^n)$. There exists a constant $C$ such that
+\begin{equation}
+        \sup_{t \in [0, T]} \mathbb E \left| X^\epsilon_t - X_t  \right| \leq C\epsilon^{1/2}
+\end{equation}
+and
+\begin{equation}
+        \sup_{t\in [0, T]} \left| \mathbb E \varphi(X^\epsilon_t) - \mathbb E \varphi(X_t)  \right|
+        \leq C \epsilon \,.
+\end{equation}
+:::
+@RocknerSunXieStrongWeak2019 (for a much more general system)
+
+# Can we __cheaply__ approximate the system __more efficiently__? {.center background-color="#F5C946"}
 
 
+## Previous works
 
+::: {.callout-tip}
+## Hasselmann's scheme (@HasselmannStochasticClimate1976) -- Nobel 2021
+Let $H^\epsilon$ be solution of
+$$ dH^\epsilon_t = \bar g (H^\epsilon_t, t)  dt + \sqrt{\epsilon} \sigma(H^\epsilon_t) dW_t $$
+where
+$$ \sigma^* \sigma (x) = a (x)$$ and $a(x)$ is the correlation matrix satisfying
+$$ a_{ij}(x) = \lim_{\epsilon \to 0} \lim_{T\to \infty}   \mathbb{E} \int_0^T (g_i(x, \xi^\epsilon_s, t) - \bar g_i(x,t)) \, ds \int_0^T (g_j(x, \xi^\epsilon_s) - \bar g_j(x,t)) \, ds \,.$$
+:::
 
+::: {.callout-important}
+## Conjecture
+  $$
+  \sup_{0\leq t \leq T} \mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon\,.
+  $$
+:::
 
+## Case $b= 0$
+$$
+         X^\epsilon_t =
+        \epsilon(1 - e^{-t/\epsilon}) Y^\epsilon_0 +
+        \sqrt{2\epsilon} W_t - \sqrt{2\epsilon} \int_0^t e^{-(t-s)/\epsilon} \, dW_s \,.
+$$
 
+$$ H^\epsilon_t = \sqrt{2\epsilon} W_t $$
 
-## Can we do better?
+Subtract the above from each other and by Ito  isometry
 
+\begin{equation*}
+        \mathbb E \left|  X^\epsilon_t - H^\epsilon_t \right|^2
+        \leq C\epsilon^2 + 2\epsilon \int_0^t e^{-2(t-s)/\epsilon} \, ds \leq  C \epsilon^2 \,.
+\end{equation*}
+
+So
+$$
+\sup_{0\leq t \leq T} \mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon\,.
+$$
+
+## 
+::: {.callout-note}
+##  Theorem (@BakhtinKiferDiffusionApproximation2004)
+  $$
+  \sup_{0\leq t \leq T}\mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon^{1/2 + \delta} \,.
+  $$
+for any $\delta \in (0,1/(18+8n))$.
+:::
+ 
+__Idea__
+
+1. Use the central limit theorem of @KhasminskiiStochasticProcesses1966
+$$
+\frac{ X^\epsilon_t - X_t}{\sqrt \epsilon} \to R_t
+$$
+
+2. Approximate $X^\epsilon_t$ and $H^\epsilon_t$ by
+   $$
+    K^\epsilon_t = X_t  + \sqrt{\epsilon} R_t \,.
+   $$
+
+# Direct approach on Kinetic Langevin {.center}
 
 
 ## Kinetic Langevin
 
+\begin{cases} 
+  d X^\epsilon_t &= Y^\epsilon_t dt  \\  
+  \epsilon d Y^\epsilon_t  &=  (- Y^\epsilon_t + b(X^\epsilon_t, t)   )dt + \sqrt{2 \epsilon}  dW_t
+\end{cases}
+
+Integral form
+
+\begin{align*}
+	X^\epsilon_t
+	 & = X^\epsilon_0 + \int_0^t Y^\epsilon_s \, ds                                                                         \\
+	 & = X^\epsilon_0 +
+	\int_0^t \left(  e^{-s/\epsilon} Y_0 + \frac{1}{\epsilon}\int_0^s  e^{-(s-r)/\epsilon} b(X^\epsilon_r, r) \, dr \right) ds \nonumber \\
+	 & \qquad + \sqrt{\frac{2}{\epsilon}} \int_0^t\int_0^s e^{-(s-r)/\epsilon} \, dW_r  \, ds \,.
+	\label{eq:Langevin-solution}
+\end{align*}
+
+##
+Rewirte the equation for $X^\epsilon_t$
+	\begin{align*}
+		dX^\epsilon_t    & =  \left( A(X^\epsilon_t,t) + V^\epsilon_t  \right) dt\,,               \\
+		dV^\epsilon_t & = -\frac{V^\epsilon_t}{\epsilon} \, dt + \sqrt{\frac 2 \epsilon} dW_t \,,
+	\end{align*}
+	where
+	\begin{align*}
+		A(X^\epsilon_t,t) &=  b_0 e^{-t/\epsilon} + \frac{1}{\epsilon} \int_0^t e^{-(t-s)/\epsilon} b(X^\epsilon_s,s) \, ds  \\
+                & =  b(x(t),t) \\ 
+                &- \int_0^t e^{-(t-s)/\epsilon} \left(\partial_t b(X^\epsilon_s,s) + D b(X^\epsilon_s,s)\, \dot X^\epsilon_s \right)  \, ds \\
+                & \approx b(X^\epsilon_t,t) - \epsilon \left( \partial_t b(X^\epsilon_t,t) + Db(X^\epsilon_t,t) \, \dot X^\epsilon_t \right)  
+	\end{align*}
+        
+## 
 
 
-## Simplest case $b= 0$
+$$
+  dX^\epsilon_t     \approx b(X^\epsilon_t,t) dt - \epsilon \left( \partial_t b(X^\epsilon_t,t) + Db(X^\epsilon_t,t) \, \dot X^\epsilon_t \right) dt  + V^\epsilon_t   dt               
+$$
+
+. . .
+
+So, $\dot X^\epsilon_t \approx b(X^\epsilon_t,t)$.
+
+. . .
+
+::: {.callout-note}
+## Proposed scheme
+$$
+dZ^\epsilon_t = b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(X^\epsilon_t,t) + Db(X^\epsilon_t,t) \, \dot X^\epsilon_t \right) dt 
++ \sqrt{2 \epsilon} dW_t
+$$
+:::
+Fokker-Planck equation
+
+\begin{equation}
+	\partial_t u^\epsilon + \nabla_x \cdot \left(
+	F u^\epsilon\right) - \epsilon \Delta_x u^\epsilon = 0 \,.
+	\label{eq:PDEApprox}
+\end{equation}
+where $F = b - \epsilon (\partial_t b + D_x b b)$.
 
 
+## (Surprised) Relation to Turbulence 
 
-## Large time
+From _Introduction to Turbulent Transport of Particles, Temperature and Magnetic Fields_ by @RogachevskiiIntroductionTurbulent2021
 
+::: {layout="[30,70]"}
+
+Using Feynman's path integral, one may formally derive
+
+![](images/NTU-Spring-2025/book.png)
+
+:::
+
+# Result {.center background-color="#F5C946"}
+
+##  {.center}
+
+::: {.callout-note}
+## Theorem (Mori, Sintavanuruk, V., 2025+)
+Assume $Y^\epsilon_0 \sim \mathcal N(b(X_0, 0), 1)$ and smooth velocity field $b$.
+For each $T>0$, there exists $C>0$ such that
+\begin{equation}
+        \sup_{t \in [0,T]}\mathbb E \left| X^\epsilon_t - Z^\epsilon_t \right| \leq C \epsilon \,.
+\end{equation}
+Furthermore, for every $\varphi \in C^\infty(\mathbb T^n)$, there exists $C > 0$ such that
+\begin{equation}
+        \sup_{t \in [0,T]}\left|\mathbb E \left[\varphi(X^\epsilon_t) - \varphi(Z^\epsilon_t)\right] \right|
+        \leq  C \epsilon^{2}\,.
+\end{equation}
+:::
+
+::: {.callout-warning}
+## Conjecture for Hasselmann's scheme follows as corollary
+$$ \sup_{0\leq t \leq T} \mathbb E | X^\epsilon_t - H^\epsilon_t | \leq \epsilon. $$
+:::
+
+
+## Large time simulation
+
+::: {layout="[45,55]"}
+
+::: {}
+Original system
+:::
+
+::: {}
+![](images/NTU-Spring-2025/original.png)
+:::
+
+::::
+
+
+## Large time simulation
+
+:::: {layout="[40,60]"}
+
+::: {}
+Top Left: MSV   
+
+Top Right: Hasselmann 
+
+Bottom Left: Bakhtin-Kifer 
+
+Bottom Right: Li-Xi-Wang (non-diffusion)
+:::
+
+::: {}
+![](images/NTU-Spring-2025/methods.png)
+:::
+
+::::
 
 
 ## Future
+
+- Rigorous proof/disproof of large time behavior
+- Generalization
+- Different scaling regimes
+- Enhanced diffusion from homogenization of inertial particles
+- Apply to physical models
 
 
 ## Thank you! {.center}
