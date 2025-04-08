@@ -3,7 +3,9 @@ title: On Diffusion approximations of the Kinetic Langevin Equation
 subtitle: joint work with Yoichiro Mori and Chanoknun Sintavanuruk
 format:
   clean-revealjs:
+    auto-animate-easing: ease-in-out
     self-contained: true
+    center: true
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -15,11 +17,11 @@ date: last-modified
 bibliography: refs.bib
 ---
 
-## {.center}
+## {auto-animate=true}
 <img data-src="images/NTU-Spring-2025/Weather_versus_climate_at_a_glance_pillars.jpg"></img>
 
 
-## {auto-animate=true auto-animate-easing="ease-in-out" .center}
+## {auto-animate=true}
 <img data-src="images/NTU-Spring-2025/climate.png"></img>
 
 Source: [https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics](https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics)
@@ -28,14 +30,14 @@ Source: [https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics](https://cli
 
 # Fast-slow system 
 
-## {auto-animate=true .center}
+## {auto-animate=true}
 ### General
   \begin{cases} 
     \dot X^\epsilon_t = f(X^\epsilon_t, \xi^\epsilon_t, t)  \\  
     \xi^\epsilon_t \sim Y^\epsilon_{t/\epsilon}
   \end{cases}
 
-### Random fast system
+### Random fast system {auto-animate=true}
 
 \begin{cases} 
   d X^\epsilon_t &= f(X^\epsilon, Y^\epsilon_t, t) dt  \\  
@@ -50,7 +52,7 @@ Source: [https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics](https://cli
 \end{cases}
 
 
-## Averaging Principle {auto-animate=true .center}
+## Averaging Principle {auto-animate=true}
 ::: {.callout-note}
 ## Under appropriate regularity conditions 
 Suppose 
@@ -226,7 +228,23 @@ Using Feynman's path integral, one may formally derive
 
 # Result {.center background-color="#F5C946"}
 
-##  {.center}
+##  {auto-animate=true}
+
+::: {.callout-note}
+## Theorem (Mori, Sintavanuruk, V., 2025+)
+Assume $Y^\epsilon_0 \sim \mathcal N(b(X_0, 0), 1)$ and smooth velocity field $b$.
+For each $T>0$, there exists $C>0$ such that
+\begin{equation}
+        \sup_{t \in [0,T]}\mathbb E \left| X^\epsilon_t - Z^\epsilon_t \right| \leq C \epsilon \,.
+\end{equation}
+Furthermore, for every $\varphi \in C^\infty(\mathbb T^n)$, there exists $C > 0$ such that
+\begin{equation}
+        \sup_{t \in [0,T]}\left|\mathbb E \left[\varphi(X^\epsilon_t) - \varphi(Z^\epsilon_t)\right] \right|
+        \leq  C \epsilon^{2}\,.
+\end{equation}
+:::
+
+##  {auto-animate=true}
 
 ::: {.callout-note}
 ## Theorem (Mori, Sintavanuruk, V., 2025+)
@@ -248,7 +266,7 @@ $$ \sup_{0\leq t \leq T} \mathbb E | X^\epsilon_t - H^\epsilon_t | \leq \epsilon
 :::
 
 
-## Large time simulation
+## Large time simulation {auto-animate=true}
 
 ::: {layout="[45,55]"}
 
@@ -263,7 +281,7 @@ Original system
 ::::
 
 
-## Large time simulation
+## Large time simulation {auto-animate=true}
 
 :::: {layout="[40,60]"}
 
@@ -293,5 +311,5 @@ Bottom Right: Li-Xi-Wang (non-diffusion)
 - Apply to physical models
 
 
-## Thank you! {.center}
+## Thank you! {background-color="#006666"}
 
