@@ -292,7 +292,7 @@ Top Right: Hasselmann
 
 Bottom Left: Bakhtin-Kifer 
 
-Bottom Right: Li-Xi-Wang (non-diffusion)
+Bottom Right: Li-Xie-Wang (non-diffusion)
 :::
 
 ::: {}
