@@ -16,25 +16,6 @@ date: 04/10/2025
 bibliography: refs.bib
 ---
 
-##
-
-Friedrichs:
-
-  "Courant told me after the war that I should reach out to real scientists and not stay with mathematicians all the time."
-
-. . .
-
-Me (out of my ignorance) to a wise man:
-
-  "I find it somewhat frustrating that physicists are often mathematically ambiguous but they also often reach the right conclusion."
-
-. . .
-
-The wise man to me:
-
-  "A great fun challenge of going to a physics talk is to find some correct thing and work on it."
-
-
 # Original motivation {background-color="#F5C946"}
 
 ##
