@@ -12,7 +12,7 @@ author:
   - name: Truong-Son Van 
     email: 
     affiliations: Fulbright University Vietnam <br> Vietnam National University Ho Chi Minh City (Fall 2025) 
-date: last-modified
+date: 04/10/2025
 bibliography: refs.bib
 ---
 
