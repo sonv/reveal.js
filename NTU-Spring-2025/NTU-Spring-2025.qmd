@@ -158,6 +158,9 @@ $$
   \epsilon d Y^\epsilon_t  &=  (- Y^\epsilon_t + b(X^\epsilon_t, t)   )dt + \sqrt{2 \epsilon}  dW_t
 \end{cases}
 
+## Problem {.center}
+
+Expensive to simulate
 
 ## Averaging Principle {.center}
 ::: {.callout-note}
@@ -330,7 +333,7 @@ So, $\dot X^\epsilon_t \approx b(X^\epsilon_t,t)$.
 ## Proposed scheme
 \begin{align*}
 dZ^\epsilon_t 
-&= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(X^\epsilon_t,t) + Db(X^\epsilon_t,t) \, \dot X^\epsilon_t \right) dt 
+&= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(Z^\epsilon_t,t) + Db(Z^\epsilon_t,t) \, \dot Z^\epsilon_t \right) dt 
 + \sqrt{2 \epsilon} dW_t \\
   &= F(Z^\epsilon_t,t) \, dt 
 + \sqrt{2 \epsilon} dW_t 

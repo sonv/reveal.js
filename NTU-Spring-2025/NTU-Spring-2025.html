@@ -1141,6 +1141,10 @@ d\tau = \frac{dt}{\epsilon} \qquad d W_{\tau} =  d W_{t/\epsilon} \sim \frac{1}{
   \epsilon d Y^\epsilon_t  &amp;=  (- Y^\epsilon_t + b(X^\epsilon_t, t)   )dt + \sqrt{2 \epsilon}  dW_t
 \end{cases}\]</span>
 </section>
+<section id="problem-1" class="slide level2 center">
+<h2>Problem</h2>
+<p>Expensive to simulate</p>
+</section>
 <section id="averaging-principle" class="slide level2 center">
 <h2>Averaging Principle</h2>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -1343,7 +1347,7 @@ K^\epsilon_t = X_t  + \sqrt{\epsilon} R_t \,.
 <div class="callout-content">
 <p><span class="math display">\[\begin{align*}
 dZ^\epsilon_t
-&amp;= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(X^\epsilon_t,t) + Db(X^\epsilon_t,t) \, \dot X^\epsilon_t \right) dt
+&amp;= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(Z^\epsilon_t,t) + Db(Z^\epsilon_t,t) \, \dot Z^\epsilon_t \right) dt
 + \sqrt{2 \epsilon} dW_t \\
   &amp;= F(Z^\epsilon_t,t) \, dt
 + \sqrt{2 \epsilon} dW_t
