@@ -5,7 +5,6 @@ format:
   clean-revealjs:
     auto-animate-easing: ease-in-out
     self-contained: true
-    center: true
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -17,6 +16,69 @@ date: last-modified
 bibliography: refs.bib
 ---
 
+##
+
+Friedrichs:
+
+  "Courant told me after the war that I should reach out to real scientists and not stay with mathematicians all the time."
+
+. . .
+
+Me (out of my ignorance) to a wise man:
+
+  "I find it somewhat frustrating that physicists are often mathematically ambiguous but they also often reach the right conclusion."
+
+. . .
+
+The wise man to me:
+
+  "A great fun challenge of going to a physics talk is to find some correct thing and work on it."
+
+
+# Original motivation {background-color="#F5C946"}
+
+##
+<img data-src="images/NTU-Spring-2025/activecarpet.png"></img>
+
+## Steady states of particles in incompressible flow
+
+:::: {.columns}
+
+::: {.column width="60%"}
+<img data-src="images/NTU-Spring-2025/carpet.png"></img>
+:::
+
+::: {.column width="40%"}
+<img data-src="images/NTU-Spring-2025/profile.png"></img>
+:::
+
+::::
+
+##
+
+<video
+  data-autoplay
+  loop
+  src="images/NTU-Spring-2025/Guzman.mp4"
+></video>
+
+
+## Problem
+
+- The authors of the paper consider passive tracers, whose distribution is described
+  by advection-diffusion equation
+  $$ \partial_t \rho + \nabla \cdot (\bf{v} \rho) = \kappa \Delta \rho $$
+  $$ \nabla \cdot v = 0 $$
+
+- Unverified assumption
+<img data-src="images/NTU-Spring-2025/varyingD.png"></img>
+
+## Question
+
+How can one capture the non-uniformity in this system?
+
+# Climate {background-color="#F5C946"}
+
 ## {auto-animate=true}
 <img data-src="images/NTU-Spring-2025/Weather_versus_climate_at_a_glance_pillars.jpg"></img>
 
@@ -27,17 +89,63 @@ bibliography: refs.bib
 Source: [https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics](https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics)
 
 
-
 # Fast-slow system 
 
-## {auto-animate=true}
-### General
-  \begin{cases} 
-    \dot X^\epsilon_t = f(X^\epsilon_t, \xi^\epsilon_t, t)  \\  
-    \xi^\epsilon_t \sim Y^\epsilon_{t/\epsilon}
-  \end{cases}
+## 
 
-### Random fast system {auto-animate=true}
+### General
+
+\begin{cases} 
+  \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t, t)  \\  
+  Y^\epsilon_t \sim \xi^\epsilon_{t/\epsilon}
+\end{cases}
+
+
+## 
+
+### General
+
+\begin{cases} 
+  \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t, t)  \\  
+  Y^\epsilon_t \sim \xi^\epsilon_{t/\epsilon}
+\end{cases}
+
+### Random fast system 
+Let $\tau = t/\epsilon$ and $\xi^\epsilon$ satisfies
+$$
+   d \xi^\epsilon_{\tau}  =  g(X^\epsilon_{\tau},  \tau)d\tau +  h(X^\epsilon_{\tau}, \tau) dW_{\tau}
+$$
+$$
+d\tau = \frac{dt}{\epsilon} \qquad d W_{\tau} =  d W_{t/\epsilon} \sim \frac{1}{\sqrt\epsilon} dW_t
+$$
+
+## 
+
+### General
+
+\begin{cases} 
+  \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t, t)  \\  
+  Y^\epsilon_t \sim \xi^\epsilon_{t/\epsilon}
+\end{cases}
+
+### Random fast system 
+
+\begin{cases} 
+  d X^\epsilon_t &= f(X^\epsilon, Y^\epsilon_t, t) dt  \\  
+  \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t)dt + \sqrt{\epsilon} h(X^\epsilon_t, Y^\epsilon_t) dW_t
+\end{cases}
+
+
+## 
+
+### General
+
+\begin{cases} 
+  \dot X^\epsilon_t = f(X^\epsilon_t, Y^\epsilon_t, t)  \\  
+  Y^\epsilon_t \sim \xi^\epsilon_{t/\epsilon}
+\end{cases}
+
+### Random fast system 
 
 \begin{cases} 
   d X^\epsilon_t &= f(X^\epsilon, Y^\epsilon_t, t) dt  \\  
@@ -52,7 +160,7 @@ Source: [https://climatereanalyzer.org/clim/t2_daily/?dm_id=tropics](https://cli
 \end{cases}
 
 
-## Averaging Principle {auto-animate=true}
+## Averaging Principle {.center}
 ::: {.callout-note}
 ## Under appropriate regularity conditions 
 Suppose 
@@ -100,12 +208,48 @@ $$ \sigma^* \sigma (x) = a (x)$$ and $a(x)$ is the correlation matrix satisfying
 $$ a_{ij}(x) = \lim_{\epsilon \to 0} \lim_{T\to \infty}   \mathbb{E} \int_0^T (g_i(x, \xi^\epsilon_s, t) - \bar g_i(x,t)) \, ds \int_0^T (g_j(x, \xi^\epsilon_s) - \bar g_j(x,t)) \, ds \,.$$
 :::
 
+. . .
+
 ::: {.callout-important}
 ## Conjecture
   $$
   \sup_{0\leq t \leq T} \mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon\,.
   $$
 :::
+
+## 
+::: {.callout-note}
+##  Theorem (@BakhtinKiferDiffusionApproximation2004)
+  $$
+  \sup_{0\leq t \leq T}\mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon^{1/2 + \delta} \,.
+  $$
+for any $\delta \in (0,1/(18+8n))$.
+:::
+
+. . . 
+
+__Idea__
+
+1. Use the central limit theorem of @KhasminskiiStochasticProcesses1966
+$$
+\frac{ X^\epsilon_t - X_t}{\sqrt \epsilon} \to R_t
+$$
+
+. . .
+
+2. Approximate $X^\epsilon_t$ and $H^\epsilon_t$ by
+   $$
+    K^\epsilon_t = X_t  + \sqrt{\epsilon} R_t \,.
+   $$
+
+# It's been almost 50 years since the conjecture. Why should we believe such claim? {background-color="#F5C946"}
+
+## Kinetic Langevin {.center}
+
+\begin{cases} 
+  d X^\epsilon_t &= Y^\epsilon_t dt  \\  
+  \epsilon d Y^\epsilon_t  &=  (- Y^\epsilon_t + b(X^\epsilon_t, t)   )dt + \sqrt{2 \epsilon}  dW_t
+\end{cases}
 
 ## Case $b= 0$
 $$
@@ -116,38 +260,22 @@ $$
 
 $$ H^\epsilon_t = \sqrt{2\epsilon} W_t $$
 
+. . .
+
 Subtract the above from each other and by Ito  isometry
 
 \begin{equation*}
         \mathbb E \left|  X^\epsilon_t - H^\epsilon_t \right|^2
-        \leq C\epsilon^2 + 2\epsilon \int_0^t e^{-2(t-s)/\epsilon} \, ds \leq  C \epsilon^2 \,.
+        \leq C\epsilon^2 + 2\epsilon \int_0^t e^{-2(t-s)/\epsilon} \, ds \leq  C \epsilon^2 
 \end{equation*}
+
+. . .
 
 So
 $$
-\sup_{0\leq t \leq T} \mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon\,.
+\sup_{0\leq t \leq T} \mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon
 $$
 
-## 
-::: {.callout-note}
-##  Theorem (@BakhtinKiferDiffusionApproximation2004)
-  $$
-  \sup_{0\leq t \leq T}\mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon^{1/2 + \delta} \,.
-  $$
-for any $\delta \in (0,1/(18+8n))$.
-:::
- 
-__Idea__
-
-1. Use the central limit theorem of @KhasminskiiStochasticProcesses1966
-$$
-\frac{ X^\epsilon_t - X_t}{\sqrt \epsilon} \to R_t
-$$
-
-2. Approximate $X^\epsilon_t$ and $H^\epsilon_t$ by
-   $$
-    K^\epsilon_t = X_t  + \sqrt{\epsilon} R_t \,.
-   $$
 
 # Direct approach on Kinetic Langevin {.center}
 
@@ -158,6 +286,8 @@ $$
   d X^\epsilon_t &= Y^\epsilon_t dt  \\  
   \epsilon d Y^\epsilon_t  &=  (- Y^\epsilon_t + b(X^\epsilon_t, t)   )dt + \sqrt{2 \epsilon}  dW_t
 \end{cases}
+
+. . .
 
 Integral form
 
@@ -199,19 +329,22 @@ So, $\dot X^\epsilon_t \approx b(X^\epsilon_t,t)$.
 
 ::: {.callout-note}
 ## Proposed scheme
-$$
-dZ^\epsilon_t = b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(X^\epsilon_t,t) + Db(X^\epsilon_t,t) \, \dot X^\epsilon_t \right) dt 
-+ \sqrt{2 \epsilon} dW_t
-$$
+\begin{align*}
+dZ^\epsilon_t 
+&= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(X^\epsilon_t,t) + Db(X^\epsilon_t,t) \, \dot X^\epsilon_t \right) dt 
++ \sqrt{2 \epsilon} dW_t \\
+  &= F(Z^\epsilon_t,t) \, dt 
++ \sqrt{2 \epsilon} dW_t 
+\end{align*}
+where $F = b - \epsilon (\partial_t b + D_x b b)$.
 :::
 Fokker-Planck equation
 
 \begin{equation}
 	\partial_t u^\epsilon + \nabla_x \cdot \left(
-	F u^\epsilon\right) - \epsilon \Delta_x u^\epsilon = 0 \,.
+	F u^\epsilon\right) - \epsilon \Delta_x u^\epsilon = 0 
 	\label{eq:PDEApprox}
 \end{equation}
-where $F = b - \epsilon (\partial_t b + D_x b b)$.
 
 
 ## (Surprised) Relation to Turbulence 
@@ -231,7 +364,7 @@ Using Feynman's path integral, one may formally derive
 ##  {auto-animate=true}
 
 ::: {.callout-note}
-## Theorem (Mori, Sintavanuruk, V., 2025+)
+## Theorem? (Mori, Sintavanuruk, V., 2025+)
 Assume $Y^\epsilon_0 \sim \mathcal N(b(X_0, 0), 1)$ and smooth velocity field $b$.
 For each $T>0$, there exists $C>0$ such that
 \begin{equation}
@@ -244,21 +377,7 @@ Furthermore, for every $\varphi \in C^\infty(\mathbb T^n)$, there exists $C > 0$
 \end{equation}
 :::
 
-##  {auto-animate=true}
-
-::: {.callout-note}
-## Theorem (Mori, Sintavanuruk, V., 2025+)
-Assume $Y^\epsilon_0 \sim \mathcal N(b(X_0, 0), 1)$ and smooth velocity field $b$.
-For each $T>0$, there exists $C>0$ such that
-\begin{equation}
-        \sup_{t \in [0,T]}\mathbb E \left| X^\epsilon_t - Z^\epsilon_t \right| \leq C \epsilon \,.
-\end{equation}
-Furthermore, for every $\varphi \in C^\infty(\mathbb T^n)$, there exists $C > 0$ such that
-\begin{equation}
-        \sup_{t \in [0,T]}\left|\mathbb E \left[\varphi(X^\epsilon_t) - \varphi(Z^\epsilon_t)\right] \right|
-        \leq  C \epsilon^{2}\,.
-\end{equation}
-:::
+. . .
 
 ::: {.callout-warning}
 ## Conjecture for Hasselmann's scheme follows as corollary
