@@ -73,9 +73,8 @@ The wise man to me:
 - Unverified assumption
 <img data-src="images/NTU-Spring-2025/varyingD.png"></img>
 
-## Question
 
-How can one capture the non-uniformity in this system?
+## How can one capture the non-uniformity in this system? {.center}
 
 # Climate {background-color="#F5C946"}
 
