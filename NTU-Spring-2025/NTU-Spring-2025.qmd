@@ -16,6 +16,13 @@ date: 04/10/2025
 bibliography: refs.bib
 ---
 
+### Kinetic Langevin 
+
+\begin{cases} 
+  d X_t &= Y_t dt  \\  
+  d Y_t  &=  (- Y_t + b(X_t, t)   )dt +   dW_t
+\end{cases}
+
 # Original motivation {background-color="#F5C946"}
 
 ##
