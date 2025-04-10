@@ -187,7 +187,7 @@ $$
 
 . . .
 
-- Use hypoellipticity to control $\nabla_x \rho^\epsilon$ and $\Delta \rho^\epsilon$
+- Use hypoellipticity to control $\nabla_x \rho^\epsilon$ and $\Delta_x \rho^\epsilon$
 
 # Can we __cheaply__ approximate the system __more efficiently__? {.center background-color="#F5C946"}
 
