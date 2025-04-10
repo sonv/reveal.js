@@ -1174,6 +1174,20 @@ d\tau = \frac{dt}{\epsilon} \qquad d W_{\tau} =  d W_{t/\epsilon} \sim \frac{1}{
 </div>
 </div>
 <p><span class="citation" data-cites="RocknerSunXieStrongWeak2019">Röckner, Sun, and Xie (<a href="#/thank-you" role="doc-biblioref" onclick>2019</a>)</span> (for a much more general system)</p>
+</section>
+<section id="idea" class="slide level2 center">
+<h2>Idea</h2>
+<ul>
+<li>Write the Fokker-Planck equation</li>
+</ul>
+<p><span class="math display">\[
+    \partial_{t} \rho^\epsilon + \nabla_x \cdot (v\rho^\epsilon) + \epsilon^{-1}\nabla_{v}\cdot(( b-v)\rho^\epsilon) - \epsilon^{-1} \Delta_{v}\rho^\epsilon = 0 \,.
+\]</span></p>
+<div class="fragment">
+<ul>
+<li>Use hypoellipticity to control <span class="math inline">\(\nabla_x \rho^\epsilon\)</span> and <span class="math inline">\(\Delta \rho^\epsilon\)</span></li>
+</ul>
+</div>
 </section></section>
 <section>
 <section id="can-we-cheaply-approximate-the-system-more-efficiently" class="title-slide slide level1 center" data-background-color="#F5C946">
@@ -1372,7 +1386,7 @@ dZ^\epsilon_t
 <h1>Result</h1>
 
 </section>
-<section id="section-11" class="slide level2" data-auto-animate="true">
+<section id="section-11" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -1407,6 +1421,15 @@ dZ^\epsilon_t
 </div>
 </div>
 </div>
+</section>
+<section id="proof-idea" class="slide level2">
+<h2>Proof idea</h2>
+<ul>
+<li>Combination of using the integral form of the SDE to carefully control</li>
+</ul>
+<p><span class="math display">\[ A(X^\epsilon_t, t) - F(Z^\epsilon_t,t) \]</span></p>
+<p>Pros: avoid using hypoellipticity</p>
+<p>Cons: assume regularity of velocity field</p>
 </section>
 <section id="large-time-simulation" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Large time simulation</h2>
@@ -1449,6 +1472,7 @@ dZ^\epsilon_t
 <li>Rigorous proof/disproof of large time behavior</li>
 <li>Generalization</li>
 <li>Different scaling regimes</li>
+<li>PDE proof</li>
 <li>Enhanced diffusion from homogenization of inertial particles</li>
 <li>Apply to physical models</li>
 </ul>

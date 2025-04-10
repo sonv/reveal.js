@@ -177,6 +177,18 @@ and
 :::
 @RocknerSunXieStrongWeak2019 (for a much more general system)
 
+## Idea {.center}
+
+- Write the Fokker-Planck equation
+
+$$
+	\partial_{t} \rho^\epsilon + \nabla_x \cdot (v\rho^\epsilon) + \epsilon^{-1}\nabla_{v}\cdot(( b-v)\rho^\epsilon) - \epsilon^{-1} \Delta_{v}\rho^\epsilon = 0 \,.
+$$
+
+. . .
+
+- Use hypoellipticity to control $\nabla_x \rho^\epsilon$ and $\Delta \rho^\epsilon$
+
 # Can we __cheaply__ approximate the system __more efficiently__? {.center background-color="#F5C946"}
 
 
@@ -344,7 +356,7 @@ Using Feynman's path integral, one may formally derive
 
 # Result {.center background-color="#F5C946"}
 
-##  {auto-animate=true}
+##  {auto-animate=true .center}
 
 ::: {.callout-note}
 ## Theorem? (Mori, Sintavanuruk, V., 2025+)
@@ -366,6 +378,16 @@ Furthermore, for every $\varphi \in C^\infty(\mathbb T^n)$, there exists $C > 0$
 ## Conjecture for Hasselmann's scheme follows as corollary
 $$ \sup_{0\leq t \leq T} \mathbb E | X^\epsilon_t - H^\epsilon_t | \leq \epsilon. $$
 :::
+
+## Proof idea
+
+- Combination of using the integral form of the SDE to carefully control 
+
+$$ A(X^\epsilon_t, t) - F(Z^\epsilon_t,t) $$
+
+Pros: avoid using hypoellipticity
+
+Cons: assume regularity of velocity field
 
 
 ## Large time simulation {auto-animate=true}
@@ -409,6 +431,7 @@ Bottom Right: Li-Xie-Wang (non-diffusion)
 - Rigorous proof/disproof of large time behavior
 - Generalization
 - Different scaling regimes
+- PDE proof
 - Enhanced diffusion from homogenization of inertial particles
 - Apply to physical models
 
