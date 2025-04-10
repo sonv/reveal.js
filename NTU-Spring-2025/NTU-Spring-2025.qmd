@@ -162,11 +162,11 @@ Expensive to simulate
 ## Under appropriate regularity conditions 
 Suppose 
 $$
-\lim_{\epsilon \to 0} \lim_{T \to \infty} \frac{1}{T} \int_0^T g(x, Y^\epsilon_s,t) \, ds = \bar g(x, t) \,.
+\lim_{\epsilon \to 0} \lim_{T \to \infty} \frac{1}{T} \int_0^T f(x, Y^\epsilon_s,t) \, ds = \bar f(x, t) \,.
 $$
 Then $X^\epsilon \to  X$, where
 $$
-\dot X_t = \bar g(X_t, t) \,.
+\dot X_t = \bar f(X_t, t) \,.
 $$
 :::
 
@@ -211,10 +211,10 @@ $$
 ::: {.callout-tip}
 ## Hasselmann's scheme (@HasselmannStochasticClimate1976) -- Nobel 2021
 Let $H^\epsilon$ be solution of
-$$ dH^\epsilon_t = \bar g (H^\epsilon_t, t)  dt + \sqrt{\epsilon} \sigma(H^\epsilon_t) dW_t $$
+$$ dH^\epsilon_t = \bar f (H^\epsilon_t, t)  dt + \sqrt{\epsilon} \sigma(H^\epsilon_t) dW_t $$
 where
 $$ \sigma^* \sigma (x) = a (x)$$ and $a(x)$ is the correlation matrix satisfying
-$$ a_{ij}(x) = \lim_{\epsilon \to 0} \lim_{T\to \infty}   \mathbb{E} \int_0^T (g_i(x, \xi^\epsilon_s, t) - \bar g_i(x,t)) \, ds \int_0^T (g_j(x, \xi^\epsilon_s) - \bar g_j(x,t)) \, ds \,.$$
+$$ a_{ij}(x) = \lim_{\epsilon \to 0} \lim_{T\to \infty}   \mathbb{E} \int_0^T (f_i(x, \xi^\epsilon_s, t) - \bar f_i(x,t)) \, ds \int_0^T (f_j(x, \xi^\epsilon_s) - \bar f_j(x,t)) \, ds \,.$$
 :::
 
 . . .
