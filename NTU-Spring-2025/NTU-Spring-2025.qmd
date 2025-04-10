@@ -23,6 +23,13 @@ bibliography: refs.bib
   d Y_t  &=  (- Y_t + b   )dt +   dW_t
 \end{cases}
 
+Corresponding Fokker-Planck equation
+
+$$
+	\partial_{t} \rho + \nabla_x \cdot (v\rho) + \nabla_{v}\cdot(( b-v)\rho) - \Delta_{v}\rho = 0 \,.
+$$
+
+
 # Original motivation {background-color="#F5C946"}
 
 ##
