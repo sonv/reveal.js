@@ -40,23 +40,29 @@ $$
 :::: {.columns}
 
 ::: {.column width="60%"}
-<img data-src="images/NTU-Spring-2025/carpet.png"></img>
+<img data-src="images/NTU-Spring-2025/carpet.png" width="80%" height="80%"></img>
 :::
 
 ::: {.column width="40%"}
-<img data-src="images/NTU-Spring-2025/profile.png"></img>
+<img data-src="images/NTU-Spring-2025/profile.png" width="80%" height="80%"></img>
 :::
 
 ::::
 
-##
+Source: @Guzman-LastraLowenMathijssenActiveCarpets2021
+
+
+
+## 
 
 <video
   data-autoplay
   loop
   src="images/NTU-Spring-2025/Guzman.mp4"
+  width="70%" height="70%"
 ></video>
 
+Source: @Guzman-LastraLowenMathijssenActiveCarpets2021
 
 ## Problem
 
