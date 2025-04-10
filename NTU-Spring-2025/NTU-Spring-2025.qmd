@@ -16,7 +16,7 @@ date: 04/10/2025
 bibliography: refs.bib
 ---
 
-## Kinetic Langevin 
+# Kinetic Langevin 
 
 \begin{cases} 
   d X_t &= Y_t dt  \\  
