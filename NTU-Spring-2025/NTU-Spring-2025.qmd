@@ -126,7 +126,7 @@ $$
 
 \begin{cases} 
   d X^\epsilon_t &= f(X^\epsilon, Y^\epsilon_t, t) dt  \\  
-  \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t)dt + \sqrt{\epsilon} h(X^\epsilon_t, Y^\epsilon_t) dW_t
+  \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t,t)dt + \sqrt{\epsilon} h(X^\epsilon_t, Y^\epsilon_t,t) dW_t
 \end{cases}
 
 
@@ -143,7 +143,7 @@ $$
 
 \begin{cases} 
   d X^\epsilon_t &= f(X^\epsilon, Y^\epsilon_t, t) dt  \\  
-  \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t)dt + \sqrt{\epsilon} h(X^\epsilon_t, Y^\epsilon_t) dW_t
+  \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t,t)dt + \sqrt{\epsilon} h(X^\epsilon_t, Y^\epsilon_t,t) dW_t
 \end{cases}
 
 ### Kinetic Langevin 
@@ -196,12 +196,12 @@ and
 - Write the Fokker-Planck equation
 
 $$
-	\partial_{t} \rho^\epsilon + \nabla_x \cdot (v\rho^\epsilon) + \epsilon^{-1}\nabla_{v}\cdot(( b-v)\rho^\epsilon) - \epsilon^{-1} \Delta_{v}\rho^\epsilon = 0 \,.
+	\partial_{t} \rho^\epsilon + \nabla_x \cdot (f \rho^\epsilon) + \epsilon^{-1}\nabla_{v}\cdot(g \rho^\epsilon) - \epsilon^{-1} \sum_{ij} H_{ij}\frac{\partial^2}{\partial v_i \partial v_j} \rho^\epsilon = 0 \,.
 $$
 
 . . .
 
-- Use hypoellipticity to control $\nabla_x \rho^\epsilon$ and $\Delta_x \rho^\epsilon$
+- Use hypoellipticity to control $\nabla_x \rho^\epsilon$ and $D^2_x \rho^\epsilon$
 
 # Can we __cheaply__ approximate the system __more efficiently__? {.center background-color="#F5C946"}
 
