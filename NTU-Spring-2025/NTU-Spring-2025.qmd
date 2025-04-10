@@ -379,13 +379,17 @@ Furthermore, for every $\varphi \in C^\infty(\mathbb T^n)$, there exists $C > 0$
 $$ \sup_{0\leq t \leq T} \mathbb E | X^\epsilon_t - H^\epsilon_t | \leq \epsilon. $$
 :::
 
-## Proof idea
+## Proof idea {.center}
 
 - Combination of using the integral form of the SDE to carefully control 
 
 $$ A(X^\epsilon_t, t) - F(Z^\epsilon_t,t) $$
 
+. . .
+
 Pros: avoid using hypoellipticity
+
+. . .
 
 Cons: assume regularity of velocity field
 
