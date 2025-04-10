@@ -63,7 +63,7 @@ $$
 - The authors of the paper consider passive tracers, whose distribution is described
   by advection-diffusion equation
   $$ \partial_t \rho + \nabla \cdot (\bf{v} \rho) = \kappa \Delta \rho $$
-  $$ \nabla \cdot v = 0 $$
+  $$ \nabla \cdot \bf{v} = 0 $$
 
 - Unverified assumption
 <img data-src="images/NTU-Spring-2025/varyingD.png"></img>
