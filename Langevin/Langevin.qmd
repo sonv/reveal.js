@@ -1,5 +1,5 @@
 ---
-title: On Diffusion approximations of the Kinetic Langevin Equation
+title: Some approximations for fast-slow systems
 subtitle: joint work with Yoichiro Mori and Chanoknun Sintavanuruk
 format:
   clean-revealjs:
@@ -10,26 +10,12 @@ html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 author:
-  - name: Van Phung Truong Son 
+  - name: Văn Phụng Trường Sơn  
     email: 
     affiliations: Fulbright University Vietnam <br> Ho Chi Minh City University of Technology (Sept. 2025) 
 date: 07/04/2025 
 bibliography: refs.bib
 ---
-
-# Kinetic Langevin 
-
-\begin{cases} 
-  d X_t &= Y_t dt  \\  
-  d Y_t  &=  (- Y_t + b   )dt +   dW_t
-\end{cases}
-
-Corresponding Fokker-Planck equation
-
-$$
-	\partial_{t} \rho + \nabla_x \cdot (v\rho) + \nabla_{v}\cdot(( b-v)\rho) - \Delta_{v}\rho = 0 \,.
-$$
-
 
 # Original motivation {background-color="#F5C946"}
 
@@ -65,10 +51,9 @@ Source: @Guzman-LastraLowenMathijssenActiveCarpets2021
 
 Source: @Guzman-LastraLowenMathijssenActiveCarpets2021
 
-## Problem
+## Concerns 
 
-- The authors of the paper consider passive tracers, whose distribution is described
-  by advection-diffusion equation
+- The model for particles was  the advection-diffusion equation
   $$ \partial_t \rho + \nabla \cdot (\bf{v} \rho) = \kappa \Delta \rho $$
   $$ \nabla \cdot \bf{v} = 0 $$
 
@@ -153,7 +138,7 @@ $$
   \epsilon d Y^\epsilon_t  &=  g(X^\epsilon_t,  Y^\epsilon_t,t)dt + \sqrt{\epsilon} h(X^\epsilon_t, Y^\epsilon_t,t) dW_t
 \end{cases}
 
-### Kinetic Langevin 
+### Langevin 
 
 \begin{cases} 
   d X^\epsilon_t &= Y^\epsilon_t dt  \\  
@@ -227,9 +212,9 @@ $$ a_{ij}(x) = \lim_{\epsilon \to 0} \lim_{T\to \infty}   \mathbb{E} \int_0^T (f
 . . .
 
 ::: {.callout-important}
-## Conjecture
+## Open problem
   $$
-  \sup_{0\leq t \leq T} \mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon\,.
+  \sup_{0\leq t \leq T} \mathbb{E} | X^\epsilon_t - H^\epsilon_t | \leq \epsilon^?\,.
   $$
 :::
 
@@ -258,7 +243,6 @@ $$
     K^\epsilon_t = X_t  + \sqrt{\epsilon} R_t \,.
    $$
 
-# It's been almost 50 years since the conjecture. Why should we believe such claim? {background-color="#F5C946"}
 
 ## Kinetic Langevin {.center}
 
@@ -296,7 +280,7 @@ $$
 # Direct approach on Kinetic Langevin {.center}
 
 
-## Kinetic Langevin
+## Langevin
 
 \begin{cases} 
   d X^\epsilon_t &= Y^\epsilon_t dt  \\  
@@ -339,7 +323,7 @@ $$
 
 . . .
 
-So, $\dot X^\epsilon_t \approx b(X^\epsilon_t,t)$.
+But $\dot X^\epsilon_t \approx b(X^\epsilon_t,t)$.
 
 . . .
 
@@ -347,7 +331,9 @@ So, $\dot X^\epsilon_t \approx b(X^\epsilon_t,t)$.
 ## Proposed scheme
 \begin{align*}
 dZ^\epsilon_t 
-&= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(Z^\epsilon_t,t) + Db(Z^\epsilon_t,t) \, \dot Z^\epsilon_t \right) dt 
+&= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \partial_t b(Z^\epsilon_t,t) + Db(Z^\epsilon_t,t) \, b(Z^\epsilon_t,t) \right) dt 
++ \sqrt{2 \epsilon} dW_t \\
+&= b(Z^\epsilon_t,t) dt - \textcolor{red}{\epsilon} \left( \mathcal{T}b \right) dt 
 + \sqrt{2 \epsilon} dW_t \\
   &= F(Z^\epsilon_t,t) \, dt 
 + \sqrt{2 \epsilon} dW_t 
@@ -400,20 +386,30 @@ Furthermore, for every $\varphi \in C^\infty(\mathbb T^n)$, there exists $C > 0$
 $$ \sup_{0\leq t \leq T} \mathbb E | X^\epsilon_t - H^\epsilon_t | \leq \epsilon. $$
 :::
 
-## Proof idea {.center}
+## Proof idea (stay tuned for the paper coming soon!) {.center}
 
 - Combination of using the integral form of the SDE to carefully control 
 
 $$ A(X^\epsilon_t, t) - F(Z^\epsilon_t,t) $$
 
-. . .
+**Difficulty:** quantify the difference between
 
-Pros: avoid using hypoellipticity
+$$\sqrt{\frac{2}{\epsilon}}\int_0^t Q(X^\epsilon_s,s) P^\epsilon_s \, ds$$
 
-. . .
+$$\sqrt{2\epsilon} \int_0^t Q(X^\epsilon_s,s) dW_s$$
 
-Cons: assume regularity of velocity field
+where $P_t = \int_0^t e^{-(t-s)/\epsilon} \, dW_s$.
 
+
+##
+
+### Pros
+Avoid using hypoellipticity
+
+### Cons
+Assume regularity of velocity field
+
+A PDE proof (which will involve hypoellipticity) might overcome the cons.
 
 ## Simulation {auto-animate=true}
 
@@ -467,6 +463,28 @@ Bottom Right: Li-Xie-Wang (non-diffusion)
 :::
 
 ::::
+
+
+## Summary
+
+One can approximate
+
+\begin{cases} 
+  d X^\epsilon_t &= Y^\epsilon_t dt  \\  
+  \epsilon d Y^\epsilon_t  &=  (- Y^\epsilon_t + b(X^\epsilon_t, t)   )dt + \sqrt{2 \epsilon}  dW_t
+\end{cases}
+
+by
+
+| **Equation**                                                                 | **Strong Error**     | **Weak Error**     |
+|------------------------------------------------------------------------------|-----------------------|---------------------|
+| $dX_t = b\,dt$ [Rockner et al., 2019]                                        | $\sqrt{\varepsilon}$ | $\varepsilon$       |
+| $dX_t = b \, dt + \sqrt{\varepsilon}\,dW_t$ [Hasselmann, 1976]               | $\varepsilon$        | $\varepsilon$       |
+| $dX_t = (b - \varepsilon \mathcal{T} b) \, dt + \sqrt{\varepsilon}\,dW_t$    | $\varepsilon$        | $\varepsilon^2$     |
+
+. . .
+
+Rates for more general systems are still unknown and very difficult to understand. 
 
 
 ## Future
